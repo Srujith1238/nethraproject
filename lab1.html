@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="University Student Activity Management Portal to view upcoming events, explore campus activities, and register for events." />
+  <title>University Student Activity Management Portal</title>
+  <style>
+    /* Basic accessible focus and layout helpers */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: #003366;
+      color: #ffffff;
+      padding: 8px 12px;
+      z-index: 1000;
+    }
+    .skip-link:focus {
+      left: 8px;
+      top: 8px;
+    }
+    :focus-visible {
+      outline: 3px solid #005fcc;
+      outline-offset: 2px;
+    }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.5;
+      margin: 0;
+      color: #1a1a1a;
+      background-color: #f9fafb;
+    }
+    header, nav, main, aside, footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    header, footer {
+      background-color: #ffffff;
+      border-bottom: 1px solid #d1d5db;
+    }
+    footer {
+      border-top: 1px solid #d1d5db;
+      border-bottom: none;
+      margin-top: 2rem;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .layout-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    @media (max-width: 768px) {
+      .layout-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    section, article, aside {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      max-width: 480px;
+      padding: 0.5rem;
+      border: 1px solid #6b7280;
+      border-radius: 4px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    fieldset {
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      max-width: 480px;
+    }
+    legend {
+      font-weight: 600;
+      padding: 0 0.25rem;
+    }
+    .inline-option {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+      font-weight: normal;
+    }
+    button[type="submit"] {
+      background-color: #004080;
+      color: #ffffff;
+      border: none;
+      padding: 0.65rem 1.25rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background-color: #002b56;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header role="banner">
+    <div>
+      <h1>Student Activity Management Portal</h1>
+      <p>Discover campus events, join student clubs, and register for upcoming activities.</p>
+    </div>
+    <nav aria-label="Primary Navigation">
+      <ul>
+        <li><a href="#upcoming-events">Upcoming Events</a></li>
+        <li><a href="#campus-activities">Campus Activities</a></li>
+        <li><a href="#registration-form">Event Registration</a></li>
+        <li><a href="#announcements">Announcements</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="layout-grid">
+    <main id="main-content" tabindex="-1">
+      <section id="upcoming-events" aria-labelledby="events-heading">
+        <h2 id="events-heading">Upcoming Events</h2>
+
+        <article aria-labelledby="event-1-title">
+          <h3 id="event-1-title">Annual Tech &amp; Innovation Symposium</h3>
+          <p><strong>Date:</strong> <time datetime="2026-12-05">December 5, 2026</time> | <strong>Location:</strong> Main Auditorium</p>
+          <p>Student teams will showcase software, robotics, and sustainability projects to faculty and industry mentors.</p>
+        </article>
+
+        <article aria-labelledby="event-2-title">
+          <h3 id="event-2-title">Inter-Departmental Cultural Fest</h3>
+          <p><strong>Date:</strong> <time datetime="2026-12-12">December 12, 2026</time> | <strong>Location:</strong> Central Quadrangle</p>
+          <p>Enjoy music, drama, debates, and food stalls organized by student cultural societies.</p>
+        </article>
+      </section>
+
+      <section id="campus-activities" aria-labelledby="activities-heading">
+        <h2 id="activities-heading">Explore University Activities</h2>
+        <p>Get involved year-round through academic clubs, sports leagues, and community service groups:</p>
+        <ul>
+          <li><strong>Coding &amp; AI Club:</strong> Weekly peer-coding sessions and hackathon prep.</li>
+          <li><strong>Volunteer Corps:</strong> Local campus cleanups, tutoring, and blood donation drives.</li>
+          <li><strong>Debate &amp; Model UN:</strong> Public speaking workshops and inter-university tournaments.</li>
+        </ul>
+      </section>
+
+      <section id="registration-form" aria-labelledby="form-heading">
+        <h2 id="form-heading">Event Registration Form</h2>
+        <p>Fields marked with <span aria-hidden="true">*</span><span class="sr-only">required</span> are mandatory.</p>
+
+        <form action="/submit-registration" method="post" aria-describedby="form-instructions">
+          <p id="form-instructions">Complete all required fields and select your preferred event and session format.</p>
+
+          <div class="form-group">
+            <label for="full-name">Full Name <span aria-hidden="true">*</span></label>
+            <input id="full-name" name="fullName" type="text" autocomplete="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="student-id">Student ID <span aria-hidden="true">*</span></label>
+            <input id="student-id" name="studentId" type="text" required />
+          </div>
+
+          <div class="form-group">
+            <label for="student-email">University Email <span aria-hidden="true">*</span></label>
+            <input id="student-email" name="email" type="email" autocomplete="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="event-select">Select Event <span aria-hidden="true">*</span></label>
+            <select id="event-select" name="event" required>
+              <option value="">-- Choose an event --</option>
+              <option value="tech-symposium">Annual Tech &amp; Innovation Symposium</option>
+              <option value="cultural-fest">Inter-Departmental Cultural Fest</option>
+              <option value="coding-workshop">Weekend Coding &amp; AI Workshop</option>
+            </select>
+          </div>
+
+          <fieldset>
+            <legend>Attendance Mode <span aria-hidden="true">*</span></legend>
+            <label class="inline-option" for="mode-in-person">
+              <input id="mode-in-person" name="attendanceMode" type="radio" value="in-person" required />
+              In-Person
+            </label>
+            <label class="inline-option" for="mode-hybrid">
+              <input id="mode-hybrid" name="attendanceMode" type="radio" value="hybrid" />
+              Hybrid (Campus + Livestream)
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Additional Preferences &amp; Confirmations</legend>
+            <label class="inline-option" for="accessibility-support">
+              <input id="accessibility-support" name="accessibilitySupport" type="checkbox" value="yes" />
+              Request seating or captioning accommodations
+            </label>
+            <label class="inline-option" for="code-of-conduct">
+              <input id="code-of-conduct" name="codeOfConduct" type="checkbox" value="agreed" required />
+              I agree to follow the University Student Code of Conduct <span aria-hidden="true">*</span>
+            </label>
+          </fieldset>
+
+          <div class="form-group">
+            <label for="notes">Questions or Accessibility Notes</label>
+            <textarea id="notes" name="notes" rows="4" placeholder="Share any dietary needs, accommodation requests, or questions..."></textarea>
+          </div>
+
+          <button type="submit">Submit Registration</button>
+        </form>
+      </section>
+    </main>
+
+    <aside id="announcements" aria-labelledby="aside-heading">
+      <h2 id="aside-heading">Quick Notices</h2>
+      <article aria-labelledby="notice-1">
+        <h3 id="notice-1">Registration Deadlines</h3>
+        <p>Registrations close 48 hours before each scheduled event.</p>
+      </article>
+      <article aria-labelledby="notice-2">
+        <h3 id="notice-2">Need Help?</h3>
+        <p>Contact Student Affairs at <a href="mailto:activities@university.edu">activities@university.edu</a>.</p>
+      </article>
+    </aside>
+  </div>
+
+  <footer role="contentinfo">
+    <p>&copy; 2026 University Office of Student Activities. All rights reserved.</p>
+  </footer>
+</body>
+</html>
